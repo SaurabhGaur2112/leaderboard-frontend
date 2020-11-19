@@ -7,7 +7,7 @@ import Dashboard from './modules/dashboard/Dashboard';
 // css modules
 import './assets/scss/main.scss';
 
-const rootElement = document.getElementById('root');
+const rootElement = document.getElementById('app');
 
 render((
   <HotReloadContainer>

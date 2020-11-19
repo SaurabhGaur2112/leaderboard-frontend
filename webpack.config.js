@@ -6,7 +6,7 @@ function config(env) {
   return {
     entry: [
       'webpack/hot/only-dev-server',
-      './src/client/index.js',
+      './src/client/app.js',
     ],
     output: {
       path: path.join(__dirname, '/dist'),
@@ -27,7 +27,7 @@ function config(env) {
     },
     plugins: [
       new HtmlWebpackPlugin({
-        template: './src/client/index.html',
+        template: './public/index.html',
       }),
       new webpack.HotModuleReplacementPlugin(),
       new webpack.DefinePlugin({ 'process.env.API_URL': JSON.stringify(env.API_URL) }),
