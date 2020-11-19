@@ -1,0 +1,16 @@
+@import '../../utils/variables';
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  height: 50px;
+  padding: 8px 16px;
+  box-shadow: $box-shadow5;
+  background-color: $orange-1;
+  align-items: center;
+  &-title {
+    font-size: 15px;
+    font-weight: 500;
+    color: $white;
+  }
+}

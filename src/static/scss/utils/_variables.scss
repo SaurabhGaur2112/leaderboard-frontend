@@ -1,0 +1,45 @@
+// media query break point
+$desktop-break-point: 1440px;
+$tablet-break-point: 768px;
+$mobile-break-point: 600px;
+
+@mixin in-desktop() {
+  @media (max-width: $desktop-break-point) {
+    @content;
+  }
+}
+@mixin in-tablet() {
+  @media (max-width: $tablet-break-point) {
+    @content;
+  }
+}
+@mixin in-mobile() {
+  @media (max-width: $mobile-break-point) {
+    @content;
+  }
+}
+
+// box shadow
+$box-shadow1: 0 1px 4px 1px rgba(0,0,0,.18);
+$box-shadow2: 0 2px 8px 2px rgba(0,0,0,.18);
+$box-shadow3: 0 1px 2px 1px rgba(0, 0, 0, 0.1);
+$box-shadow4: 0 4px 8px 4px rgba(51,51,51,.16);
+$box-shadow5: -2px 2px 12px 0 rgba(0, 0, 0, 0.1);
+
+// transition
+$transition1: all .2s;
+
+// colors
+$brand: #77d5e2;
+
+// white
+$white: #ffffff;
+
+// black
+$black: #000000;
+
+// gray
+$gray-1: #425a70;
+
+// orange
+$orange-1: #d6917b;

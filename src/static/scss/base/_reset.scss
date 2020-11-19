@@ -1,0 +1,52 @@
+@import '../utils/variables';
+
+*,::after,::before {
+  box-sizing: border-box;
+}
+body {
+  margin: 0 auto;
+  padding: 0;
+  font-size: 14px;
+  font-family: "Whitney A","Whitney B","Whitney-Light","Catamaran","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  line-height: normal;
+}
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+  font-size: unset;
+  font-weight: unset;
+  color: unset;
+}
+a {
+  text-decoration: none;
+  color: $gray-1;
+}
+ol, ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.hawk-button__contained {
+  border-color: $orange-1 !important;
+  background-color: $orange-1 !important;
+}
+
+.hawk-table {
+  .hawk-input {
+    height: unset;
+  }
+}
+
+.hawk-loader {
+  &__jelly {
+    &-box {
+      background: $orange-1 !important;
+    }
+  }
+}
+
+.hawk-table .hawk-pagination .hawk-pagination__page {
+  background-color: $orange-1 !important;
+}
