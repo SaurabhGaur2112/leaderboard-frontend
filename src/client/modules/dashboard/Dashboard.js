@@ -11,6 +11,7 @@ import Modal from '@hawk-ui/modal';
 import Create from './sections/Create';
 // actions modules
 import {
+  getLeaders,
   createLeader,
 } from './DashboardActions';
 
@@ -18,11 +19,25 @@ class Dashboard extends Component {
   static propTypes = {
     leaderList: PropTypes.object,
     leaderCreate: PropTypes.object,
+    getLeaders: PropTypes.func,
     createLeader: PropTypes.func,
   };
 
   state = {
     isOpen: false,
+  };
+
+  componentDidMount() {
+    this.props.getLeaders();
+  }
+
+  onSubmit = (event) => {
+    const formData = new FormData();
+
+    formData.append('name', _.get(event, 'name'));
+    formData.append('credit', _.get(event, 'credit'));
+    formData.append('image', _.get(event, 'image'));
+    this.props.createLeader(formData);
   };
 
   dashboardHelper = (() => ({
@@ -37,15 +52,6 @@ class Dashboard extends Component {
       });
     },
   }))()
-
-  onSubmit = (event) => {
-    const formData = new FormData();
-
-    formData.append('name', _.get(event, 'name'));
-    formData.append('credit', _.get(event, 'credit'));
-    formData.append('image', _.get(event, 'image'));
-    this.props.createLeader(formData);
-  };
 
   render() {
     const { isOpen } = this.state;
@@ -121,6 +127,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
+    getLeaders,
     createLeader,
   }, dispatch);
 }

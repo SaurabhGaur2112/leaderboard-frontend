@@ -6,6 +6,27 @@ const initialState = {
   error: null,
 };
 
+export function leaderListReducers(state = initialState, action) {
+  switch (action.type) {
+  case actions.GET_LEADERS: {
+    return {
+      ...state,
+      data: [],
+      isLoading: true,
+    };
+  }
+  case actions.GET_LEADERS_SUCCESS: {
+    return {
+      ...state,
+      data: action.payload,
+      isLoading: false,
+    };
+  }
+  default:
+    return state;
+  }
+}
+
 export function leaderCreateReducers(state = initialState, action) {
   switch (action.type) {
   case actions.CREATE_LEADER: {
