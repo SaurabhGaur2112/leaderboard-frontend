@@ -23,16 +23,16 @@ const sanitiseQueryParams = (obj) => {
 
 export default class ApiClient {
   constructor() {
-    methods.forEach(method => this[method] = (path, { params, data } = {}) => (
+    methods.forEach(method => this[method] = (path, { params, data, formData, contentType = 'application/json' } = {}) => (
       axios({
         withCredentials: true,
         method: _.toUpper(method),
-        // baseURL: '',
         url: formatUrl(path),
         ...(_.isNil(params) ? {} : { params: sanitiseQueryParams(params) }),
         ...(_.isNil(data) ? {} : { data: JSON.stringify(data) }),
+        ...(_.isNil(formData) ? {} : { data: formData }),
         headers: {
-          'Content-type': 'application/json',
+          'Content-type': contentType,
         },
       })
         .then(response => response)

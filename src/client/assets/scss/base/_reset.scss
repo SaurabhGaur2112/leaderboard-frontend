@@ -50,3 +50,19 @@ ol, ul {
 .hawk-table .hawk-pagination .hawk-pagination__page {
   background-color: $orange-1 !important;
 }
+
+.hawk-modal {
+  &__content {
+    border-top-color: $orange-1;
+  }
+}
+
+.hawk-input {
+  height: 33px;
+}
+
+.hawk-file-upload {
+  &__draggable {
+    cursor: pointer;
+  }
+}

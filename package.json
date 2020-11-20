@@ -36,8 +36,10 @@
   },
   "dependencies": {
     "@hawk-ui/button": "^2.10.1",
+    "@hawk-ui/file-upload": "^2.10.1",
     "@hawk-ui/input": "^2.10.1",
     "@hawk-ui/loader": "^2.10.1",
+    "@hawk-ui/modal": "^2.10.1",
     "@hawk-ui/table": "^2.10.1",
     "axios": "^0.21.0",
     "classnames": "^2.2.6",
