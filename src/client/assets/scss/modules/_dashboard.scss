@@ -25,6 +25,11 @@
       color: $blue-1;
     }
   }
+  &__content {
+    &-img {
+      height: 100px;
+    }
+  }
   &__desc {
     font-size: 14px;
     color: $blue-1;

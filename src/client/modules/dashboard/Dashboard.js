@@ -57,21 +57,22 @@ class Dashboard extends Component {
     const { isOpen } = this.state;
     const { leaderList, leaderCreate } = this.props;
     const tableHeader = [
-      { key: 'company', title: 'Company', dataIndex: 'company' },
-      { key: 'contact', title: 'Contact', dataIndex: 'contact' },
-      { key: 'country', title: 'Country', dataIndex: 'country' },
-      { key: 'action', title: 'Action', dataIndex: '', render: event => <span onClick={() => { console.log(event); }} style={{ cursor: 'pointer' }}>Delete</span> },
-    ];
-    const tableContent = [
-      { id: 1, company: 'Alfreds Futterkiste', contact: 'Maria Anders', country: 'Germany' },
-      { id: 2, company: 'Centro comercial Moctezuma', contact: '', country: 'Mexico' },
-      { id: 3, company: 'Ernst Handel', contact: 'Roland Mendel', country: 'Austria' },
-      { id: 4, company: 'Island Trading', contact: 'Helen Bennett', country: 'UK' },
-      { id: 5, company: 'Alfreds Futterkiste', contact: 'Maria Anders', country: '' },
+      { key: 'id', title: '#', dataIndex: 'id' },
+      {
+        key: 'avatar',
+        title: 'Avatar',
+        dataIndex: '',
+        render: event => (
+          <img
+            src={`${process.env.API_URL}/tmp/${event.image}`}
+            className="dashboard__content-img"
+          />
+        ),
+      },
+      { key: 'name', title: 'Name', dataIndex: 'name' },
+      { key: 'credit', title: 'Credits', dataIndex: 'score' },
     ];
 
-    console.log('query leaderList', leaderList);
-    console.log('query leaderCreate', leaderCreate);
     return (
       <div className="dashboard">
         <div className="dashboard__content">
@@ -88,7 +89,7 @@ class Dashboard extends Component {
             </div>
             <div className="dashboard__desc">Create custom environments and assign them to sources. Labels must follow the key:value format, can only contain letters, numbers, hyphens or dashes and must begin with a letter.</div>
             <Table
-              tableContent={tableContent}
+              tableContent={_.get(leaderList, 'data.data', [])}
               tableSearchContent={['email', 'type']}
             >
               <Table.SEARCH />
