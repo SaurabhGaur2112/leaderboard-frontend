@@ -25,8 +25,9 @@ export default class ApiClient {
   constructor() {
     methods.forEach(method => this[method] = (path, { params, data, formData, contentType = 'application/json' } = {}) => (
       axios({
-        withCredentials: true,
         method: _.toUpper(method),
+        // baseURL: 'http://localhost:8000',
+        baseURL: process.env.API_URL,
         url: formatUrl(path),
         ...(_.isNil(params) ? {} : { params: sanitiseQueryParams(params) }),
         ...(_.isNil(data) ? {} : { data: JSON.stringify(data) }),
