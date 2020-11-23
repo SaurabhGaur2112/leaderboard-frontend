@@ -1,6 +1,6 @@
 const apiEndPoints = {
   leader: {
-    getLeaders: () => '/api/v1/leaderboard/',
+    getLeaders: id => `/api/v1/leaderboard/${id}`,
     createLeader: () => '/api/v1/player/create/',
   },
 };

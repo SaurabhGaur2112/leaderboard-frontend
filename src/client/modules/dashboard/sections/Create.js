@@ -17,7 +17,7 @@ export default class Create extends Component {
   }
 
   state = {
-    leaderImage: {},
+    leaderImage: null,
     leaderName: '',
     leaderCredit: '',
   };
@@ -25,7 +25,7 @@ export default class Create extends Component {
   componentWillReceiveProps(nextProps) {
     if (!nextProps.isOpen) {
       this.setState({
-        leaderImage: {},
+        leaderImage: null,
         leaderName: '',
         leaderCredit: '',
       });
