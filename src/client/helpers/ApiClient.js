@@ -33,6 +33,7 @@ export default class ApiClient {
         ...(_.isNil(formData) ? {} : { data: formData }),
         headers: {
           'Content-type': contentType,
+          'Access-Control-Allow-Origin': '*',
         },
       })
         .then(response => response)
