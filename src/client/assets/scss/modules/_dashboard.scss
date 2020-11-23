@@ -13,6 +13,22 @@
     &:first-child {
       margin-top: 0;
     }
+    .hawk-table {
+      table thead tr th {
+        &:first-child {
+          width: 90px;
+        }
+        &:nth-child(2) {
+          width: 150px;
+        }
+        &:last-child {
+          width: 150px;
+          .hawk-table-th {
+            justify-content: center;
+          }
+        }
+      }
+    }
   }
   &__header {
     display: flex;

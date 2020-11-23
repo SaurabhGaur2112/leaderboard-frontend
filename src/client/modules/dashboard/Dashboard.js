@@ -134,6 +134,8 @@ class Dashboard extends Component {
               <Table.CONTENT
                 tableHeader={tableHeader}
                 isLoading={content.isLoading}
+                isSorting
+                sortBy={['id', 'name', 'score']}
               />
               <Table.PAGINATION
                 pageRangeDisplayed={pagination.rangeDisplay}
