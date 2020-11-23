@@ -45,6 +45,11 @@ ol, ul {
       background: $orange-1 !important;
     }
   }
+  &__spinner {
+    & > div {
+      background-color: $white;
+    }
+  }
 }
 
 .hawk-table .hawk-pagination .hawk-pagination__page {

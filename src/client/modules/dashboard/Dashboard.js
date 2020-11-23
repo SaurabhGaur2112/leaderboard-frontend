@@ -25,6 +25,11 @@ class Dashboard extends Component {
 
   state = {
     isOpen: false,
+    pagination: {
+      rangeDisplay: 3,
+      size: 10,
+      total: 100,
+    },
   };
 
   componentDidMount() {
@@ -54,7 +59,7 @@ class Dashboard extends Component {
   }))()
 
   render() {
-    const { isOpen } = this.state;
+    const { isOpen, pagination } = this.state;
     const { leaderList, leaderCreate } = this.props;
     const tableHeader = [
       { key: 'id', title: '#', dataIndex: 'id' },
@@ -73,6 +78,7 @@ class Dashboard extends Component {
       { key: 'credit', title: 'Credits', dataIndex: 'score' },
     ];
 
+    console.log('query leaderCreate', leaderCreate);
     return (
       <div className="dashboard">
         <div className="dashboard__content">
@@ -87,14 +93,23 @@ class Dashboard extends Component {
                 <span>Add Leaders</span>
               </Button>
             </div>
-            <div className="dashboard__desc">Create custom environments and assign them to sources. Labels must follow the key:value format, can only contain letters, numbers, hyphens or dashes and must begin with a letter.</div>
+            <div className="dashboard__desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</div>
             <Table
               tableContent={_.get(leaderList, 'data.data', [])}
-              tableSearchContent={['email', 'type']}
+              tableSearchContent={['name', 'score']}
             >
               <Table.SEARCH />
               <Table.CONTENT
                 tableHeader={tableHeader}
+                isLoading={true}
+              />
+              <Table.PAGINATION
+                pageRangeDisplayed={pagination.rangeDisplay}
+                itemsCountPerPage={pagination.size}
+                totalItemsCount={pagination.total}
+                onPaginationChange={(page) => {
+                  console.log('query page', page);
+                }}
               />
             </Table>
           </div>
@@ -109,7 +124,7 @@ class Dashboard extends Component {
         >
           <Create
             isOpen={isOpen}
-            response=""
+            response={leaderCreate}
             onClick={this.dashboardHelper.close}
             onSubmit={(event) => { this.onSubmit(event); }}
           />
